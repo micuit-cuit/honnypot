@@ -205,3 +205,4 @@ Les contributions sont les bienvenues ! Merci de :
 ---
 
 **⚠️ Avertissement** : Ce honeypot est destiné à des fins de recherche et d'apprentissage en cybersécurité. Utilisez-le de manière responsable et conformément aux lois locales.
+en gros, deployer le de partout, GO GO Go 
