@@ -10,7 +10,6 @@ WORKDIR /app
 
 # Copier les fichiers de dépendances
 COPY package*.json ./
-COPY bun.lockb ./
 
 # Installer les dépendances avec Bun
 RUN bun install --frozen-lockfile --production
@@ -28,13 +27,14 @@ RUN mkdir -p /app/logs && \
 
 # Définir les permissions strictes sur les autres fichiers/dossiers
 RUN chown -R root:root /app && \
-    chmod -R 444 /app/index.js && \
-    chmod -R 444 /app/fakeShel-js/ && \
-    chmod -R 444 /app/filesystem_config.txt && \
-    chmod -R 444 /app/header.txt && \
-    chmod -R 444 /app/package*.json && \
-    chmod -R 444 /app/bun.lockb && \
-    chmod -R 555 /app/node_modules
+    chmod 644 /app/index.js && \
+    chmod -R 644 /app/fakeShel-js/ && \
+    chmod 644 /app/filesystem_config.txt && \
+    chmod 644 /app/header.txt && \
+    chmod 644 /app/package*.json && \
+    chmod -R 555 /app/node_modules && \
+    # Permettre l'exécution pour le répertoire fakeShel-js
+    find /app/fakeShel-js -type d -exec chmod 755 {} \;
 
 # Créer un répertoire temporaire en lecture seule
 RUN mkdir -p /app/temp && \
