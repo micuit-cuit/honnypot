@@ -20,11 +20,6 @@ COPY fakeShel-js/ ./fakeShel-js/
 COPY filesystem_config.txt ./
 COPY header.txt ./
 
-# Créer le répertoire logs avec les bonnes permissions
-RUN mkdir -p /app/logs && \
-    chown honeypot:honeypot /app/logs && \
-    chmod 755 /app/logs
-
 # Définir les permissions strictes sur les autres fichiers/dossiers
 RUN chown -R root:root /app && \
     chmod 644 /app/index.js && \
@@ -35,6 +30,12 @@ RUN chown -R root:root /app && \
     chmod -R 555 /app/node_modules && \
     # Permettre l'exécution pour le répertoire fakeShel-js
     find /app/fakeShel-js -type d -exec chmod 755 {} \;
+
+# Créer le répertoire logs avec les bonnes permissions
+RUN mkdir -p /app/logs && \
+# Rétablir les permissions du dossier logs après chown -R root:root
+    chown honeypot:honeypot /app/logs && \
+    chmod 755 /app/logs
 
 # Créer un répertoire temporaire en lecture seule
 RUN mkdir -p /app/temp && \

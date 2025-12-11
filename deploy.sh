@@ -13,7 +13,7 @@ if ! command -v docker &> /dev/null; then
 fi
 
 # Vérifier que docker-compose est installé
-if ! command -v docker-compose &> /dev/null; then
+if ! command -v docker compose &> /dev/null; then
     echo "❌ docker-compose n'est pas installé ou accessible"
     exit 1
 fi
@@ -30,7 +30,7 @@ if [ $? -eq 0 ]; then
     mkdir -p logs
     
     # Démarrer avec docker-compose
-    docker-compose up -d
+    docker compose up -d
     
     if [ $? -eq 0 ]; then
         echo "✅ Honeypot démarré avec succès !"
