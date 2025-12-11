@@ -32,9 +32,14 @@ RUN chown -R root:root /app && \
     chmod 644 /app/filesystem_config.txt && \
     chmod 644 /app/header.txt && \
     chmod 644 /app/package*.json && \
+    chmod 644 /app/bun.lockb && \
     chmod -R 555 /app/node_modules && \
     # Permettre l'exécution pour le répertoire fakeShel-js
     find /app/fakeShel-js -type d -exec chmod 755 {} \;
+
+# Rétablir les permissions du dossier logs après chown -R root:root
+RUN chown honeypot:honeypot /app/logs && \
+    chmod 755 /app/logs
 
 # Créer un répertoire temporaire en lecture seule
 RUN mkdir -p /app/temp && \
