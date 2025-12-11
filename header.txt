@@ -1,0 +1,41 @@
+Welcome to Ubuntu 22.04.5 LTS (GNU/Linux 5.15.0-163-generic x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/pro
+
+ System information as of lun. 09 déc. 2025 08:47:20 UTC
+
+  System load:             {{RANDOM_0-100}}%
+  Usage of /:              {{RANDOM_0-100}}% of {{RANDOM_50-100}}GB
+  Memory usage:            {{RANDOM_0-100}}%
+  Swap usage:              {{RANDOM_0-100}}%
+  Temperature:             {{RANDOM_20-60}}C
+  Processes:               {{RANDOM_0-500}}
+  Users logged in:         0
+  IPv4 address for enp3s0: 192.168.1.{{RANDOM_2-254}}
+
+  => There are {{RANDOM_1-20}} zombie processes.
+
+ * Strictly confined Kubernetes makes edge and IoT secure. Learn how MicroK8s
+   just raised the bar for easy, resilient and secure K8s cluster deployment.
+
+   https://ubuntu.com/engage/secure-kubernetes-at-the-edge
+
+Expanded Security Maintenance for Applications is not enabled.
+
+{{RANDOM_10-100}} updates can be applied immediately.
+To see these additional updates run: apt list --upgradable
+
+{{RANDOM_1-10}} additional security updates can be applied with ESM Apps.
+Learn more about enabling ESM Apps service at https://ubuntu.com/esm
+
+New release '24.04.3 LTS' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+
+*** System restart required ***
+Last login: Mon Dec  9 08:47:20 2025 from 192.168.1.{{RANDOM_2-254}}
+
+Bienvenue dans fish, le shell amical et interactif
+Type help for instructions on how to use fish

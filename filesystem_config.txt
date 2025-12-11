@@ -1,0 +1,52 @@
+# Configuration d'exemple pour le système de fichiers virtuel
+# Format: chemin_virtuel -> chemin_réel_optionnel [permissions] [owner:group]
+# Si pas de chemin réel spécifié, le contenu sera vide par défaut
+# Les répertoires se terminent par /
+
+# Structure de base
+/bin/ -> - rwxr-xr-x root:root
+/sbin/ -> - rwxr-x--- root:root
+/lib/ -> - r-xr-xr-x root:root
+/usr/local/bin/ -> - rwxr-xr-x root:root
+
+# Fichiers système
+/etc/motd -> - r--r--r-- root:root
+/etc/issue -> - r--r--r-- root:root
+/proc/version -> - r--r--r-- root:root
+/proc/cpuinfo -> - r--r--r-- root:root
+
+# Répertoires utilisateur
+/home/user1/ -> - rwxr-xr-x user1:users
+/home/user2/ -> - rwxr-xr-x user2:users
+/home/admin/ -> - rwxr-xr-x admin:wheel
+
+# Fichiers de configuration
+/etc/passwd -> - rw-r--r-- root:root
+/etc/shadow -> - rw------- root:root
+/etc/group -> - rw-r--r-- root:root
+/etc/sudoers -> - r--r----- root:root
+
+# Logs
+/var/log/ -> - rwxr-xr-x root:root
+/var/log/auth.log -> - rw-r----- root:adm
+/var/log/syslog -> - rw-r--r-- root:root
+
+# Fichiers temporaires
+/tmp/ -> - rwxrwxrwt root:root
+/var/tmp/ -> - rwxrwxrwt root:root
+
+# Applications fictives
+/usr/bin/ls -> - rwxr-xr-x root:root
+/usr/bin/cat -> - rwxr-xr-x root:root
+/usr/bin/grep -> - rwxr-xr-x root:root
+/usr/bin/vim -> - rwxr-xr-x root:root
+
+# Données sensibles
+/root/ -> - rwx------ root:root
+/root/.ssh/ -> - rwx------ root:root
+/root/.bashrc -> - rw------- root:root
+
+# Devices (simulation)
+/dev/ -> - rwxr-xr-x root:root
+/dev/null -> - rw-rw-rw- root:root
+/dev/zero -> - rw-rw-rw- root:root

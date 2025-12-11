@@ -1,0 +1,28 @@
+# Ignorer les fichiers temporaires et logs locaux
+node_modules/
+logs/*.log
+.bun/
+.npm/
+.cache/
+
+# Ignorer les fichiers de développement
+*.swp
+*.swo
+*~
+.DS_Store
+.env
+.env.local
+
+# Ignorer les fichiers git et documentation
+.git/
+.gitignore
+README.md
+CONTRIBUTING.md
+LICENSE
+
+# Ignorer les fichiers de test
+test/
+*.test.js
+
+# Ignorer les scripts de déploiement dans l'image
+deploy.sh

@@ -1,0 +1,31 @@
+# Dépendances
+node_modules/
+
+# Fichiers de lock et cache
+bun.lockb
+package-lock.json
+.bun/
+.npm/
+.cache/
+
+# Clés SSH et certificats
+host.key
+host.key.pub
+*.pem
+*.key
+*.crt
+
+# Logs et données temporaires  
+logs/
+*.log
+
+# Fichiers de développement
+.env
+.env.local
+.DS_Store
+*.swp
+*.swo
+*~
+
+# Fichiers Docker locaux
+docker-compose.override.yml
