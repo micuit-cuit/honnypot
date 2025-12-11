@@ -24,10 +24,20 @@ docker build -t ssh-honeypot:bun .
 if [ $? -eq 0 ]; then
     echo "✅ Image construite avec succès !"
     
-    echo "🚀 Démarrage du conteneur..."
-    
-    # Créer le dossier logs s'il n'existe pas
+    # Créer le dossier logs s'il n'existe pas et configurer les permissions
     mkdir -p logs
+    sudo chown 1001:1001 logs
+    
+    # Supprimer les anciennes clés SSH locales pour forcer la régénération
+    if [ -f "host.key" ] || [ -f "host.key.pub" ]; then
+        echo "🗑️ Suppression des anciennes clés SSH..."
+        rm -f host.key host.key.pub
+    fi
+    
+    echo "🔑 Génération de nouvelles clés SSH..."
+    ssh-keygen -t rsa -b 4096 -f host.key -N ""
+    sudo chown 1001:1001 host.key host.key.pub
+    echo "✅ Nouvelles clés SSH générées avec les bonnes permissions"
     
     # Démarrer avec docker-compose
     docker compose up -d

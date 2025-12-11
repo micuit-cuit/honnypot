@@ -27,6 +27,7 @@ RUN chown -R root:root /app && \
     chmod 644 /app/filesystem_config.txt && \
     chmod 644 /app/header.txt && \
     chmod 644 /app/package*.json && \
+    chmod 644 /app/bun.lockb && \
     chmod -R 555 /app/node_modules && \
     # Permettre l'exécution pour le répertoire fakeShel-js
     find /app/fakeShel-js -type d -exec chmod 755 {} \;

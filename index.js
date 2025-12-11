@@ -29,13 +29,8 @@ const server = new Server({
         console.error('Erreur lors de l\'initialisation du système de fichiers:', err);
     });
     client.on('authentication', (ctx) => {
-        if (ctx.method === 'password') {
-            shell.logger.logLogin(clientIP, ctx.username, ctx.password, true);
-            ctx.accept();
-        } else {
-            shell.logger.logLogin(clientIP, ctx.username || 'unknown', ctx.password || '', false);
-            ctx.reject();
-        }
+        shell.logger.logLogin(clientIP, ctx.username, ctx.password, true);
+        ctx.accept();
     });
 
     client.on('ready', () => {
